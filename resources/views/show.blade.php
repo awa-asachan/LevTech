@@ -27,7 +27,7 @@
         function deletePost(e) {
             'use script'
             if (confirm('削除すると復元できません。\n本当に削除しますか?')){
-                document.getElementByID('form_delete').submit();
+                document.getElementById('form_delete').submit();
             }
         }
         </script>
