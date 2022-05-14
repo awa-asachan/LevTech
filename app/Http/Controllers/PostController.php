@@ -9,6 +9,24 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return $post->get();
+        return view('posts.index')->with(['posts' => $post->getPaginateBylimit()]); 
+    }
+    
+    public function show(Post $post)
+    {
+        return view('show')->with(['post' => $post]);
+    }
+    
+    public function create()
+    {
+        return veiw('create');
+    
+    }
+    
+    public function store(Request $request, Post $post)
+    {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
     }
 }
