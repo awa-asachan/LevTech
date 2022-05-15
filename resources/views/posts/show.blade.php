@@ -15,7 +15,7 @@
             @csrf
             {{ method_field('delete') }}
             <input type="submit" style="display:none">
-            <p class='delete'>[<span onclick="return deletePost(this);">delete</span>]</p>
+            <p class='delete'>[<span onclick="deletePost(this)">delete</span>]</p>
         </form>
         <div class='post'>
             <h2 class='title'>{{ $post->title }}</h2>
@@ -27,7 +27,7 @@
         function deletePost(e) {
             'use script'
             if (confirm('削除すると復元できません。\n本当に削除しますか?')){
-                document.getElementByID('form_delete').submit();
+                document.getElementById('form_delete').submit();
             }
         }
         </script>

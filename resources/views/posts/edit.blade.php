@@ -17,7 +17,6 @@
             <div class='content__body'>
                 <h2>Body</h2>
                 <textarea type="text" name="post[body]" placeholder="今日も1日お疲れさまでした。" >{{ $post->body }}</textarea>
-                <input type='text' name='post[body]' value="{{ $post->body }}">
             </div>
             <input type="submit" value="update">
         </form>

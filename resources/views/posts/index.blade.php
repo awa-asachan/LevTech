@@ -9,6 +9,8 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <button onclick="location.href='/posts/create'">投稿作成</button>
+
         <div class='posts'>
             @foreach ($posts as $post)
                <div classs='post'>
@@ -16,6 +18,11 @@
                        <a href='/posts/{{ $post->id }}'>{{ $post->title }}</a>
                        </h2>
                    <p class='body'>{{ $post->body }}</p>
+                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+                       @csrf
+                       @method('DELETE')
+                       <button type="submit">delete</button> 
+                   </form>
                </div>
             @endforeach
         </div>
@@ -23,9 +30,4 @@
             {{ $posts->links() }}
         </div>
     </body>
-    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
-        @csrf
-        @method('DELETE')
-        <button type="submit">delete</button> 
-    </form>
-</html>
+   </html>
