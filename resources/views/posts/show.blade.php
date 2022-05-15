@@ -15,7 +15,7 @@
             @csrf
             {{ method_field('delete') }}
             <input type="submit" style="display:none">
-            <p class='delete'>[<span onclick="return deletePost(this);">delete</span>]</p>
+            <p class='delete'>[<span onclick="deletePost(this)">delete</span>]</p>
         </form>
         <div class='post'>
             <h2 class='title'>{{ $post->title }}</h2>
